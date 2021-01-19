@@ -1,0 +1,531 @@
+* {
+    margin: 0; /* 外边框 上下 左右 */
+    padding: 0; /* 内边框 上下 左右 */
+    border: 0; /* 边框 */
+    list-style-type: none;
+    text-decoration: none;
+}
+#currentTime {
+    width: 250px;
+    height: 60px;
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    font-size: 26px;
+    color: #000000;
+}
+.header {
+    width: 75%;
+    height: 70px;
+    margin: auto;
+    background: white;
+}
+#home:before {
+    content: "\f015";
+    font-family: FontAwesome, serif;
+    font-size: 24px;
+    color: #733f26;
+}
+.header .nav a {
+    width: 10%;
+    height: 70px;
+    display: block;
+    font-family: 微软雅黑;
+    color: #333333;
+    margin: 0 2px;
+    background-image: -webkit-linear-gradient(right, #6CD5CB, #c09d8a);
+    border-radius: 0 30px;
+    padding: 0 5px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 70px;
+    float: left;
+}
+.header a:hover {
+    background-image: -webkit-linear-gradient(right, #9999CC, #8fb432);
+    color: rgba(0,255,255,0.5);
+}
+.header #logo {
+    width: 6%;
+    float: left;
+}
+.dividing_line {
+    width: 1px;
+    height: 40px;
+    margin: 15px 0 10px 0;
+    background-color: black;
+    float: right;
+}
+.header #login, #register {
+    width: 6%;
+    height: 70px;
+    display: block;
+    font-family: 微软雅黑;
+    color: #cccccc;
+    font-size: 30px;
+    text-align: center;
+    line-height: 70px;
+    float: right;
+}
+.header #login:hover, #register:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: black;
+}
+.top_part {
+    width: 100%;
+}
+.top {
+    position: relative;
+    margin: 0 auto;
+    width: 1220px;
+    height: 640px;
+    overflow: hidden;
+}
+.top_list {
+    position: absolute;
+    left: 0;
+    height: 640px;
+    width: 4880px;
+    transition: 0.5s;
+}
+.top1 {
+    float: left;
+    margin: 20px 20px;
+    width: 1180px;
+    height: 600px;
+}
+.top2 {
+    position: relative;
+    float: left;
+    margin: 20px 20px;
+    width: 1180px;
+    height: 600px;
+    perspective: 1180px;
+}
+.top3 {
+    position: relative;
+    float: left;
+    margin: 20px 20px;
+    width: 1180px;
+    height: 600px;
+    border-radius: 30px;
+}
+.top1_left {
+    float: left;
+    width: 720px;
+    height: 100%;
+}
+.top1_right {
+    float: left;
+    width: 460px;
+    height: 100%;
+}
+.top1_item {
+    float: left;
+    width: 220px;
+    height: 280px;
+    margin: 0px 20px 20px 0;
+}
+.top1_item_image {
+    width: 100%;
+    height: 580px;
+}
+.part_header {
+    width: 1180px;
+    height: 80px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.part_header > div {
+    float: left;
+}
+.bef_point {
+    width: 15px;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+    background: #6CD5CB;
+}
+.header_text {
+    background-image: -webkit-linear-gradient(right, #6CD5CB, #c09d8a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 20px;
+    margin-right: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 40px;
+}
+.block_bottom {
+    background: #dddddd;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+.block_bottom a {
+    color: black;
+    transition: all 0.5s;
+}
+.block_bottom:hover {
+    background-image: -webkit-linear-gradient(right, orange, bisque);
+    color: purple;
+    cursor: pointer;
+}
+.block_bottom:hover a {
+    color: white;
+    cursor: pointer;
+}
+.block_bottom > div {
+    margin: 0 20px;
+}
+.top1_item {
+    border-radius: 20px;
+    position: relative;
+}
+.block_item_left_part {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s;
+    background: cornsilk;
+}
+.block_item_left_part:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 0 8px 2px black;
+    cursor: pointer;
+}
+.top1_item_right_part {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s;
+    background: white;
+    z-index: -1;
+}
+.block_item_left_part img {
+    width: 221px;
+    height: 280px;
+}
+.top1_item_right_part img {
+    width: 221px;
+    height: 130px;
+}
+.top1_item_right_part img:hover {
+    cursor: pointer;
+}
+.detail {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    /*background: #046fca;*/
+}
+.top1_name {
+    margin: 10px 0 0 15px;
+    font-weight: 700;
+    font-size: 20px;
+}
+.top1_name:hover {
+    cursor: pointer;
+}
+.top1_text {
+    height: 100px;
+    margin-top: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 9px;
+    text-indent: 2rem;
+    color: #333333;
+    overflow: auto;
+    line-height: 20px;
+}
+.mov_sc {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: orangered;
+    font-weight: 700;
+}
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 221px;
+    height: 130px;
+    /*background: #046fca;*/
+}
+.cover1 {
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    width: 90%;
+    height: 10px;
+    background: #333333;
+    border-radius: 3px;
+}
+.cover2 {
+    position: absolute;
+    left: 11px;
+    top: 7.5px;
+    width: 88%;
+    height: 4.5px;
+    background: #444444;
+    border-radius: 3px;
+}
+.cover3 {
+    position: absolute;
+    left: 11px;
+    top: 7.5px;
+    width: 1%;
+    /*0% 88%*/
+    height: 4.5px;
+    background: #A0A0A0;
+    border-radius: 3px;
+}
+.top2_item {
+    position: absolute;
+    left: 0;
+    margin-top: 20px;
+    height: 560px;
+    width: 420px;
+    transition-property: transform-origin, transform;
+    transition-duration: 0s, 0.5s;
+    transition-timing-function: linear, ease;
+    box-shadow: 0 2px 12px 4px #333333;
+}
+.top2_item img {
+    height: 560px;
+    width: 420px;
+    left: 0;
+}
+.top2_item:hover {
+    cursor: pointer;
+}
+#top3_block {
+    width: 1180px;
+    height: 600px;
+    background-image: url("./images/a21.jpg");
+    background-repeat: no-repeat;
+    background-size: 1180px 600px;
+    transition: all 0.2s;
+}
+.top3_box {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    margin: 20px 20px 20px 18px;
+    padding-left: 2px;
+    width: 1140px;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+}
+.top3_box > div {
+    float: left;
+    overflow: hidden;
+    margin: 10px 0 10px 10px;
+    border-radius: 20px;
+    position: relative;
+    height: 100px;
+    width: 178px;
+    transition: all 0.2s;
+}
+.top3_box > div:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 4px rgba(255, 255, 255, 0.5);
+}
+.top3_box img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100px;
+    width: 178px;
+}
+.top3_true {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+.top3_false {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100px;
+    width: 178px;
+    background: rgba(0, 0, 0, 0.5);
+}
+.middle_part {
+    width: 1180px;
+    margin: 0 auto;
+    height: 1060px;
+    border-top: 2px solid black;
+}
+.news {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+.news_left {
+    width: 50%;
+    height: 500px;
+}
+.news_left_text a {
+    width: 600px;
+    height: 60px;
+    font-size: 24px;
+    font-family: 黑体;
+    color: black;
+    text-align: left;
+    overflow: hidden;
+    margin: 5px 0 5px 15px;
+    line-height: 60px;
+    float: left;
+}
+.news_left_text a:hover {
+    transform: translate(40px,3px) scale(1.1);
+    color: #13b8ba;
+    transition: 0.5s;
+    font-weight: bold;
+    cursor: pointer;
+}
+.news_right {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 35%;
+    height: 500px;
+    float: right;
+    margin-left: 50px;
+}
+.news_right p {
+    width: 150px;
+    height: 50px;
+    font-size: 24px;
+    font-family: 微软雅黑;
+    color: white;
+    background-color: #F08080;
+    border-radius: 10px;
+    text-align: center;
+    margin: 5px 0 5px 15px;
+    line-height: 50px;
+    float: left;
+}
+.news_right_text {
+    position: relative;
+    top: 60px;
+}
+.ida {
+    width: 40px;
+    height: 47px;
+    background-color: #13b8ba;
+    color: #aa2828;
+    border-radius: 10px;
+    margin: 5px;
+}
+.news_right_text a {
+    position: relative;
+    top: -60px;
+    width: 600px;
+    height: 47px;
+    font-size: 24px;
+    font-family: 新細明體-ExtB;
+    color: black;
+    text-align: left;
+    overflow: hidden;
+    margin: 5px 0 0 50px;
+    line-height: 47px;
+    float: left;
+}
+.news_right_text a:hover {
+    transform: translate(40px,3px) scale(1.1);
+    color: #6666cc;
+    transition: 0.5s;
+    font-weight: bold;
+}
+.videos {
+    width: 100%;
+    height: 1280px;
+    position: relative;
+}
+.video_play {
+    position: relative;
+    float: left;
+    width: 550px;
+    height: 500px;
+    margin: 20px;
+}
+.video_part {
+    width: 100%;
+    height: 1180px;
+    margin: 10px 0;
+}
+.more a {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    width: 80px;
+    height: 50px;
+    background-color: #6666cc;
+    color: white;
+    border-radius: 20px;
+    font-size: 24px;
+    font-family: 华文行楷;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+.more a:hover {
+    color: #6CD5CB;
+}
+#copyright_part {
+    width: 100%;
+    display: flex;
+    padding: 100px 0 10px 0;
+    flex-flow: column nowrap;
+    text-align: center;
+    font-size: 20px;
+}
+#copyright_part a {
+    color: #000000;
+}
+#copyright_part a:hover {
+    color: #c09d8a;
+}
+#to_header {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 25px;
+    border: #CCCCCC 5px solid;
+    font-weight: 700;
+}
+#to_header:hover {
+    cursor: pointer;
+    color: #ffffff;
+    transition: 0.3s;
+    background-color: #999999;
+}
+#to_header_arrow {
+    font-size: 60px;
+    transform: translate(4px, 0) rotateZ(1.6rad);
+}
+#to_header:hover #to_header_arrow {
+    color: #ffffff;
+}

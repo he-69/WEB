@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <style type="text/css">
+        * {
+            margin: 0; /* 外边框 上下 左右 */
+            padding: 0; /* 内边框 上下 左右 */
+            border: 0; /* 边框 */
+            list-style-type: none;
+            text-decoration: none;
+        }
+        #currentTime {
+            width: 250px;
+            height: 60px;
+            margin-top: 10px;
+            text-align: center;
+            display: flex;
+            float: right;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            font-size: 26px;
+            color: #000000;
+        }
+        .header {
+            width: 75%;
+            height: 70px;
+            margin: auto;
+            background: white;
+        }
+        #home:before {
+            content: "\f015";
+            font-family: FontAwesome, serif;
+            font-size: 24px;
+            color: #733f26;
+        }
+        .header .nav a {
+            width: 10%;
+            height: 70px;
+            display: block;
+            font-family: 微软雅黑;
+            color: #333333;
+            margin: 0 2px;
+            background-image: -webkit-linear-gradient(right, #6CD5CB, #c09d8a);
+            border-radius: 0 30px;
+            padding: 0 5px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 70px;
+            float: left;
+        }
+        .header a:hover {
+            background-image: -webkit-linear-gradient(right, #9999CC, #8fb432);
+            color: rgba(0, 255, 255, 0.5);
+        }
+        .header #logo {
+            width: 6%;
+            float: left;
+        }
+        .dividing_line {
+            width: 1px;
+            height: 40px;
+            margin: 15px 0 10px 0;
+            background-color: black;
+            float: right;
+        }
+        .header #login, #register {
+            width: 6%;
+            height: 70px;
+            display: block;
+            font-family: 微软雅黑;
+            color: #cccccc;
+            /*margin: 0 5px;*/
+            font-size: 30px;
+            text-align: center;
+            line-height: 70px;
+            float: right;
+        }
+        .header #login:hover, #register:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+        .a {
+            width: 500px;
+            height: 650px;
+            margin: 0 auto;
+            border: 2px solid #dcdfe6;
+        }
+        .a:hover {
+            box-shadow: 0 0 10px #cccccc;
+        }
+        .aa {
+            width: 500px;
+            height: 320px;
+            text-align: center;
+        }
+        .aa b {
+            font-size: 30px;
+        }
+        #copyright_part {
+            display: flex;
+            padding: 30px 0 10px 0;
+            flex-flow: column nowrap;
+            text-align: center;
+            font-size: 20px;
+        }
+        #copyright_part a {
+            color: black;
+        }
+        #copyright_part a:hover {
+            color: #c09d8a;
+        }
+        nav#首页 {
+            width: 75%;
+            height: 650px;
+            margin: auto;
+            padding-top: 70px;
+        }
+        .ab {
+            background-color: #dcdfe6;
+            display: block;
+            height: 2px;
+            width: 95%;
+            margin: 0 7px;
+        }
+        .aba {
+            position: absolute;
+            background-color: #ffffff;
+            padding: 15px;
+            left: 50%;
+            z-index: 1;
+            transform: translateX(-50%) translateY(-50%); /*定位中心*/
+        }
+        @font-face {
+            font-family: "FontAwesome";
+            src: url("../sample/fonts/fontawesome-webfont.eot?v=4.7.0");
+            src: url("../sample/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"),
+            url("../sample/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),
+            url("../sample/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"),
+            url("../sample/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"),
+            url("../sample/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+            font-weight: normal;
+            font-style: normal;
+        }
+        .abaa:before {
+            content: "\f2c3";
+            font-family: FontAwesome, serif;
+            font-size: 26px;
+            color: #733f26;
+        }
+        .ac {
+            width: 400px;
+            height: 200px;
+            margin: auto;
+            padding-top: 20px;
+        }
+        .aca {
+            width: 400px;
+            height: 50px;
+            border: 2px solid #dcdfe6;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .aca:before {
+            content: "\f2c0";
+            font-family: FontAwesome, serif;
+            font-size: 24px;
+            line-height: 50px;
+            margin: 15px;
+            color: #733f26;
+        }
+        .ac input {
+            width: 80%;
+            height: 30px;
+            outline: 0; /* 轮廓 */
+            text-align: start;
+            font-size: 24px;
+            padding: 1px 2px;
+            border-radius: 3px;
+            border-width: 2px;
+        }
+        .acb {
+            width: 400px;
+            height: 50px;
+            border: 2px solid #dcdfe6;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .acb:before {
+            content: "\f084";
+            font-family: FontAwesome, serif;
+            font-size: 21px;
+            line-height: 50px;
+            margin: 15px;
+            color: #733f26;
+        }
+        .Register button {
+            width: 400px;
+            height: 50px;
+            /*background: -webkit-linear-gradient(right, #6CD5CB , white);*/
+            background-color: #6CD5CB;
+            border: 2px solid #6CD5CB;
+            margin-top: 35px;
+            border-radius: 5px;
+            font-size: 20px;
+            color: white;
+            outline: 0;
+        }
+        .Register button:hover {
+            background-color: #6666cc;
+            /*background: -webkit-linear-gradient(right, #0000CC , white);*/
+            border-color: #6666cc;
+            transition: 2s;
+            cursor: pointer; /* 鼠标变成手势 */
+        }
+    </style>
+    <script src="login_and_register.js">
+        window.onload = function () {
+            setFocus();
+            current();
+        };
+    </script>
+</head>
+<body>
+<div class="header">
+    <div id="logo">
+        <img src="images/logo.png" width="100%"/>
+    </div>
+    <div class="nav">
+        <a href="home.html" id="home">首页</a>
+        <a href="introduce.html">品种介绍</a>
+        <a href="purchase.html">购买宠物</a>
+        <a href="了解更多.html">了解更多</a>
+        <a href="联系我们.html">联系我们</a>
+    </div>
+    <a href="register.html">
+        <div id="register">注册</div>
+    </a>
+    <div class="dividing_line"></div>
+    <a href="login.html">
+        <div id="login">登录</div>
+    </a>
+    <div id="currentTime"></div>
+</div>
+<nav id="首页">
+    <div class="a">
+        <div class="aa">
+            <img src="images/index.png" width="100%"/>
+            <b>User Register</b>
+        </div>
+        <div class="ab">
+            <div class="aba">
+                <div class="abaa">
+                </div>
+            </div>
+        </div>
+        <div class="ac">
+            <div class="aca">
+                <input type="text" autocomplete="off" onclick="setFocus()"
+                       placeholder="Please enter your username.">
+            </div>
+            <div class="acb">
+                <input type="password" autocomplete="off" pattern="[0-9][a-z][A-Z]." onclick="setFocus()"
+                       placeholder="Please enter your password.">
+            </div>
+            <div class="acb">
+                <input type="password" autocomplete="off" pattern="[0-9][a-z][A-Z]." onclick="setFocus()"
+                       placeholder="Please confirm your password">
+            </div>
+            <div class="Register">
+                <a href="login.html">
+                    <button type="button" id="myBtn">Register</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</nav>
+<div id="copyright_part">
+    <div>
+        Copyright (C) <a>ZUCC heyongjie</a>. All Rights Reserved.
+        <address>通讯地址：浙大城市学院 电话：15268776025 邮箱：31901016@stu.zucc.edu.cn</address>
+    </div>
+</div>
+</body>
+</html>

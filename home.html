@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>宠物之家</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="css.css"/>
+    <script type="text/javascript" src="js.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            js1();
+            js2();
+            js3();
+            js4();
+            current();
+            toTop();
+        };
+    </script>
+</head>
+<body>
+<div class="header">
+    <div id="logo">
+        <img src="images/logo.png" width="100%"/>
+    </div>
+    <div class="nav">
+        <a href="home.html" id="home">首页</a>
+        <a href="introduce.html">品种介绍</a>
+        <a href="purchase.html">购买宠物</a>
+        <a href="了解更多.html">了解更多</a>
+        <a href="联系我们.html">联系我们</a>
+    </div>
+    <a href="register.html">
+        <div id="register">注册</div>
+    </a>
+    <div class="dividing_line"></div>
+    <a href="login.html">
+        <div id="login">登录</div>
+    </a>
+    <div id="currentTime"></div>
+</div>
+<div class="top_part">
+    <div class="part_header">
+        <div class="bef_point"></div>
+        <div class="header_text">萌宠介绍</div>
+        <div class="block_bottom" id="header_bottom1">
+            <div>最受欢迎</div>
+        </div>
+        <div class="block_bottom" id="header_bottom2">
+            <div>标新立异</div>
+        </div>
+        <div class="block_bottom" id="header_bottom3">
+            <div>猜你喜欢</div>
+        </div>
+        <div class="block_bottom" id="header_bottom4">
+            <div>更多</div>
+        </div>
+    </div>
+    <div class="top" id="top">
+        <div class="top_list" id="top_list">
+            <div class="top1">
+                <div class="top1_left">
+                    <div class="top1_item">
+                        <div class="top1_item_right_part" id="g1">
+                            <img id="image_part" src="./images/b1.jpg" alt="">
+                            <div class="cover0" id="c10">
+                            </div>
+                            <div class="detail">
+                                <div class="top1_name">狗</div>
+                                <div class="top1_text">
+                                    宠物狗是人们为了消除孤寂或出于娱乐目的而豢养的犬类动物，已被人类驯化了几千年，其嗅觉灵敏，动作敏捷，善解人意，忠于主人，被称为“人类最忠实的朋友”，是饲养率最高的宠物，其寿命大约在12~18年。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_item_left_part" id="f1">
+                            <img src="./images/a1.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="top1_item">
+                        <div class="top1_item_right_part" id="g2">
+                            <img src="./images/b2.jpg" alt="">
+                            <div class="detail">
+                                <div class="top1_name">猫</div>
+                                <div class="top1_text">
+                                    猫可算是一种完美的动物，大自然把它安排得十全十美：猫长得好看、恪尽职守、独立生活、不依赖主人。但是它不像狗之类的其它驯养动物，猫还略带昔日野性、独立不羁的味道。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_item_left_part" id="f2">
+                            <img src="./images/a2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="top1_item">
+                        <div class="top1_item_right_part" id="g3">
+                            <img src="./images/b3.jpg" alt="">
+                            <div class="detail">
+                                <div class="top1_name">仓鼠</div>
+                                <div class="top1_text">
+                                    属中小型鼠类。体长在5~28厘米之间，体重在30~1000克。体型短粗。尾短,主要食物为植物种子，喜食坚果，亦食植物嫩茎或叶，偶尔也吃小虫。仓鼠主要在夜间活动，视力差，只能模糊辨形，颜色只能分辨黑白。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_item_left_part" id="f3">
+                            <img src="./images/a3.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="top1_item">
+                        <div class="top1_item_right_part" id="g4">
+                            <img src="./images/b4.jpg" alt="">
+                            <div class="detail">
+                                <div class="top1_name">金鱼</div>
+                                <div class="top1_text">
+                                    金鱼性情温和，一般寿命在6年左右，也有较长的。金鱼属于一种杂食偏肉食性的淡水鱼类，具有发达的咽喉齿，可以吞食较硬的饵料。鱼对水温的适应能力较强，但是不能适应温度的剧烈变化，其适宜的水温在18-26℃，温度过高或过低都会影响金鱼的摄食和生长繁殖。金鱼喜欢偏弱碱性的水，水体的pH值在7.5-8.0较为适宜。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_item_left_part" id="f4">
+                            <img src="./images/a4.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="top1_item">
+                        <div class="top1_item_right_part" id="g5">
+                            <img src="./images/b5.jpg" alt="">
+                            <div class="detail">
+                                <div class="top1_name">鹦鹉</div>
+                                <div class="top1_text">
+                                    它们以其美丽的羽毛，善学人语技能的特点，更为人们所欣赏和钟爱。羽色鲜艳，鸟喙强劲有力，可以食用硬壳果。鹦鹉的品种不同寿命也不同，一般小型鹦鹉类7-20年，中大型鹦鹉平均寿命为30-60年。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_item_left_part" id="f5">
+                            <img src="./images/a5.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="top1_item">
+                        <div class="top1_item_right_part" id="g6">
+                            <img src="./images/b6.jpg" alt="">
+                            <div class="detail">
+                                <div class="top1_name">龙猫</div>
+                                <div class="top1_text">
+                                    前半身似兔，后半身似鼠，耳大钝圆，尾毛蓬松。眼睛明亮，鼻端两侧有许多长须。标准毛丝鼠皮毛呈蓝灰色，腹部渐淡至白色，腹中部有分界明显的白色带。毛丝鼠性情温顺，不咬人，喜欢群居，善于跳跃，胆小怕惊扰，习惯于白天安睡，夜间觅食，喜欢在笼中仰卧于柔和的阳光下。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block_item_left_part" id="f6">
+                            <img src="./images/a6.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="top1_right">
+                    <div class="top1_item_image"></div>
+                </div>
+            </div>
+            <div class="top2">
+                <div class="top2_item" id="top2_item0"><img src="./images/a10.jpg"></div>
+                <div class="top2_item" id="top2_item1"><img src="./images/a11.jpg"></div>
+                <div class="top2_item" id="top2_item2"><img src="./images/a12.jpg"></div>
+                <div class="top2_item" id="top2_item3"><img src="./images/a13.jpg"></div>
+                <div class="top2_item" id="top2_item4"><img src="./images/a14.jpg"></div>
+                <div class="top2_item" id="top2_item5"><img src="./images/a15.jpg"></div>
+                <div class="top2_item" id="top2_item6"><img src="./images/a16.jpg"></div>
+            </div>
+            <div class="top3">
+                <div id="top3_block"></div>
+                <div class="top3_box">
+                    <div><img src="./images/a21.jpg">
+                        <div class="top3_true" id="top3_1"></div>
+                    </div>
+                    <div><img src="./images/a22.jpg">
+                        <div class="top3_false" id="top3_2"></div>
+                    </div>
+                    <div><img src="./images/a23.jpg">
+                        <div class="top3_false" id="top3_3"></div>
+                    </div>
+                    <div><img src="./images/a24.jpg">
+                        <div class="top3_false" id="top3_4"></div>
+                    </div>
+                    <div><img src="./images/a25.jpg">
+                        <div class="top3_false" id="top3_5"></div>
+                    </div>
+                    <div><img src="./images/a26.jpg">
+                        <div class="top3_false" id="top3_6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="middle_part">
+    <div class="news" id="news">
+        <div class="part_header">
+            <div class="bef_point"></div>
+            <div class="header_text">萌宠新闻</div>
+            <div class="block_bottom">
+                <div>汪星球</div>
+            </div>
+            <div class="block_bottom">
+                <div>喵星球</div>
+            </div>
+            <div class="block_bottom">
+                <div>其他星球</div>
+            </div>
+            <div class="block_bottom">
+                <div>其他星系</div>
+            </div>
+        </div>
+        <div class="news_left">
+            <div class="news_left_text">
+                <a href="content1.html">七旬老人恶意毒杀22条宠物狗获刑3年</a>
+                <a href="content2.html">不拴狗绳!宠物狗被车压死，主人需“倒赔”</a>
+                <a href="content3.html">送狗狗回乡下养了一段时间后，简直不忍直视</a>
+                <a>主人给狗狗喂食，手却被狗狗咬流血</a>
+                <a>小狗将食材分到流浪犬，还让流浪犬睡在狗狗的窝里</a>
+                <a>哈士奇借着主人去上班，把家中当做了儿童游乐园</a>
+                <a>狗走在路上碰到只羊，吓得赶忙抱住主人大腿要抱抱</a>
+            </div>
+        </div>
+        <div class="news_right">
+            <a href="recommend.html"><p>淘宝推荐</p></a>
+            <div class="news_right_text">
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1
+                000858.1000725.6.3224674dXqdg4N&id=548272698039&skuId=454070333628
+                7&areaId=330100&user_id=2889741150&cat_id=50043512&is_b=1
+                &rn=b7ee15083bfb0a010bd33ce55ba6ebec" target="_blank">狗狗牵引绳</a>
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?id=605861313259&ali_refid=a3_
+                419108_1006:1106581922:N:i9tLCswAF0lhE0vYEUZbHg==:5775828f6d4abf234a9eb3
+                0e78d7b565&ali_trackid=1_5775828f6d4abf234a9eb30e78d7b565&spm=a220m.10008
+                58.0.0" target="_blank">好主人白肉猫罐头猫咪零食</a>
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.136.1ed84012DJ
+                j9YP&id=624040273338&skuId=4427904185494&areaId=330100&user_id=2200693614688&cat_id
+                =50043513&is_b=1&rn=e8eaaa6bf75261f521f5589b6f659794" target="_blank">四季通用可拆洗宠物屋</a>
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.21.5362722eBRWW
+                Fh&id=580481343605&skuId=4397857671647&areaId=330100&user_id=3296567944&cat_id=50043
+                530&is_b=1&rn=fc4778e6c16978d32c61e23aaf7edb3d" target="_blank">碗形猫窝猫爪板窝磨爪玩具</a>
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.16.5362722eBRWWFh
+                &id=536234781447&skuId=3585736149096&areaId=330100&user_id=757619970&cat_id=50043530&i
+                s_b=1&rn=fc4778e6c16978d32c61e23aaf7edb3d" target="_blank">耐咬磨牙发声宠物玩具球</a>
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.31.5362722eBRWWF
+                h&id=633879502144&skuId=4528345605987&areaId=330100&user_id=2208869925797&cat_id=5004
+                3530&is_b=1&rn=fc4778e6c16978d32c61e23aaf7edb3d" target="_blank">录音按钮宠物交流器</a>
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.56.5362722eBRWWF
+                h&id=37909417362&skuId=4660802255655&areaId=330100&user_id=2019505434&cat_id=50043530
+                &is_b=1&rn=fc4778e6c16978d32c61e23aaf7edb3d" target="_blank">猫爬架带窝一体别墅</a>
+                <div class="ida"></div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.6f361a5cKn23Eq
+                &id=574290802249&skuId=4061182482815&areaId=330100&user_id=3837764657&cat_id=50105723
+                &is_b=1&rn=21fe2b4805e9b03bcafa265ce6b69e9d" target="_blank">除毛神器猫毛清理器</a>
+            </div>
+        </div>
+    </div>
+    <div class="videos">
+        <div class="part_header">
+            <div class="bef_point"></div>
+            <div class="header_text">萌宠视频</div>
+            <div class="block_bottom">
+                <div>可爱</div>
+            </div>
+            <div class="block_bottom">
+                <div>搞笑</div>
+            </div>
+            <div class="block_bottom">
+                <div>新奇</div>
+            </div>
+            <div class="block_bottom">
+                <div>其他风格</div>
+            </div>
+        </div>
+        <div class="video_part">
+            <div class="video_play">
+                <iframe src="//player.bilibili.com/player.html?aid=14713402&bvid=BV1Hx411G7Ke&cid=23982977&page=1"
+                        width="100%" height="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="video_play">
+                <iframe src="//player.bilibili.com/player.html?aid=80507313&bvid=BV1dJ411p7a1&cid=137779200&page=1"
+                        width="100%" height="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="video_play">
+                <iframe src="//player.bilibili.com/player.html?aid=373090484&bvid=BV1HZ4y1g7Ru&cid=264333449&page=1"
+                        width="100%" height="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+            <div class="video_play">
+                <iframe src="//player.bilibili.com/player.html?aid=92934289&bvid=BV18E411E7EQ&cid=158670629&page=1"
+                        width="100%" height="100%" scrolling="no" border="0" frameborder="no" framespacing="0"
+                        allowfullscreen="true"></iframe>
+            </div>
+        </div>
+        <div class="more">
+            <a href="https://www.bilibili.com/v/life/animal#/" target="_blank">更多</a>
+        </div>
+    </div>
+</div>
+<div id="to_header" title="回到顶部">
+    <div id="to_header_arrow">&lt;</div>
+</div>
+<div id="copyright_part">
+    <div>
+        Copyright (C) <a>ZUCC heyongjie</a>. All Rights Reserved.
+        <address>通讯地址：浙大城市学院 电话：15268776025 邮箱：31901016@stu.zucc.edu.cn</address>
+    </div>
+</div>
+</body>
+</html>

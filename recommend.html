@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宠物之家</title>
+    <style type="text/css">
+        * {
+            margin: 0; /* 外边框 上下 左右 */
+            padding: 0; /* 内边框 上下 左右 */
+            border: 0; /* 边框 */
+            list-style-type: none;
+            text-decoration: none;
+        }
+        #currentTime {
+            width: 250px;
+            height: 60px;
+            margin-top: 10px;
+            text-align: center;
+            display: flex;
+            float: right;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            font-size: 26px;
+            color: #000000;
+        }
+        .header {
+            width: 75%;
+            height: 70px;
+            margin: auto;
+            background: white;
+        }
+        #home:before {
+            content: "\f015";
+            font-family: FontAwesome, serif;
+            font-size: 24px;
+            color: #733f26;
+        }
+        .header .nav a {
+            width: 10%;
+            height: 70px;
+            display: block;
+            font-family: 微软雅黑;
+            color: #333333;
+            margin: 0 2px;
+            background-image: -webkit-linear-gradient(right, #6CD5CB, #c09d8a);
+            border-radius: 0 30px;
+            padding: 0 5px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 70px;
+            float: left;
+        }
+        .header a:hover {
+            background-image: -webkit-linear-gradient(right, #9999CC, #8fb432);
+            color: rgba(0, 255, 255, 0.5);
+        }
+        .header #logo {
+            width: 6%;
+            float: left;
+        }
+        .dividing_line {
+            width: 1px;
+            height: 40px;
+            margin: 15px 0 10px 0;
+            background-color: black;
+            float: right;
+        }
+        .header #login, #register {
+            width: 6%;
+            height: 70px;
+            display: block;
+            font-family: 微软雅黑;
+            color: #cccccc;
+            font-size: 30px;
+            text-align: center;
+            line-height: 70px;
+            float: right;
+        }
+        .header #login:hover, #register:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+        #copyright_part {
+            width: 100%;
+            display: flex;
+            padding: 20px 0;
+            flex-flow: column nowrap;
+            text-align: center;
+            font-size: 20px;
+        }
+        #copyright_part a {
+            color: #000000;
+        }
+        #copyright_part a:hover {
+            color: #c09d8a;
+        }
+        .middle {
+            width: 1180px;
+            height: 780px;
+            margin: auto;
+        }
+        .part_header {
+            width: 100%;
+            height: 80px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .part_header > div {
+            float: left;
+        }
+        .bef_point {
+            margin-top: 20px;
+            margin-right: 20px;
+            width: 15px;
+            height: 40px;
+            background: #6CD5CB;
+        }
+        .header_text {
+            background-image: -webkit-linear-gradient(bottom, #FFA500, #6CD5CB);
+            width: 80%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 20px;
+            margin-right: 10px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 40px;
+        }
+        .block_1 {
+            float: left;
+            width: 750px;
+            height: 700px;
+            margin: 20px;
+        }
+        .block_1_part {
+            float: left;
+            width: 710px;
+            height: 300px;
+            margin: 20px;
+            border: 1px solid red;
+        }
+        .block_2 {
+            float: left;
+            width: 305px;
+            height: 660px;
+            margin: 20px;
+            border: 1px solid red;
+        }
+        .block_2_part {
+            float: left;
+            width: 305px;
+            height: 320px;
+            margin-top: 20px;
+        }
+        .text {
+            background-image: -webkit-linear-gradient(bottom, #FFA500, #046fca);
+        }
+        .part_header h3 {
+            font-size: 30px;
+            color: white;
+            margin-left: 5px;
+        }
+        .block_1 a {
+            position: relative;
+            right: 30px;
+            width: 600px;
+            height: 47px;
+            font-size: 24px;
+            font-family: 新細明體-ExtB;
+            color: black;
+            background-image: -webkit-linear-gradient(left, #5f7630, #22665d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: left;
+            margin: 5px 0 0 50px;
+            line-height: 47px;
+            float: left;
+        }
+        .block_1 a:hover {
+            background-image: -webkit-linear-gradient(left, #53518d, #8b4363);
+            transform: translate(50px, 0) scale(1.1);
+            transition: 0.8s;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            function current() {
+                var mydate = new Date();
+                var year = mydate.getFullYear();
+                var month = mydate.getMonth() + 1;
+                var date = mydate.getDate();
+                var day = mydate.getDay();
+                var week = ["日", "一", "二", "三", "四", "五", "六"];
+                var hours = mydate.getHours();
+                var minutes = mydate.getMinutes();
+                var seconds = mydate.getSeconds();
+                var str = "123";
+                var str = year + "/" + change(month) + "/" + change(date) + "  星期" + week[day]
+                    + "  " + change(hours) + ":" + change(minutes) + ":" + change(seconds);
+                if (hours <= 4) str += "   夜晚好";
+                else if (hours <= 7) str += "   清晨好";
+                else if (hours <= 11) str += "   上午好";
+                else if (hours <= 14) str += "   中午好";
+                else if (hours <= 17) str += "   下午好";
+                else if (hours <= 24) str += "   晚上好";
+                document.getElementById("currentTime").innerHTML = str;
+            }
+            setInterval(current, 500);
+            function change(data) {
+                return data <= 9 ? "0" + data : data;
+            }
+        };
+    </script>
+</head>
+<body>
+<div class="header">
+    <div id="logo">
+        <img src="images/logo.png" width="100%"/>
+    </div>
+    <div class="nav">
+        <a href="home.html" id="home">首页</a>
+        <a href="introduce.html">品种介绍</a>
+        <a href="purchase.html">购买宠物</a>
+        <a href="了解更多.html">了解更多</a>
+        <a href="联系我们.html">联系我们</a>
+    </div>
+    <a href="register.html">
+        <div id="register">注册</div>
+    </a>
+    <div class="dividing_line"></div>
+    <a href="login.html">
+        <div id="login">登录</div>
+    </a>
+    <div id="currentTime"></div>
+</div>
+<div class="middle">
+    <div class="part_header">
+        <div class="bef_point"></div>
+        <div class="header_text">淘宝推荐</div>
+        <div class="block_1">
+            <div class="block_1_part">
+                <div class="text">
+                    <h3>宠物用品</h3>
+                </div>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.5.4c2c24b6lv3BSr&id=629869623175&skuId=4471689360874&areaId=330100&user_id=2200621067365&c
+                at_id=50043512&is_b=1&rn=f6c9cb51db725baad7dfdda9f4786a6c" target="_blank">霍曼三代宠物饮水机自动循环流动水猫咪狗狗喂水器</a>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.1.4c2c24b6lv3BSr&id=603194527170&skuId=4692785214203&areaId=330100&user_id=2822748726&cat_
+                id=50043512&is_b=1&rn=f6c9cb51db725baad7dfdda9f4786a6c" target="_blank">小佩新风猫包外出便携太空舱宠物背包</a>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.77.4c2c24b6lv3BSr&id=571673353300&skuId=4559082565348&areaId=330100&user_id=704407379&cat_
+                id=50043512&is_b=1&rn=f6c9cb51db725baad7dfdda9f4786a6c" target="_blank">狗粮盒密封存储桶猫粮盒子狗粮箱防潮收纳储存罐</a>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.105.4c2c24b6lv3BSr&id=559458850912&areaId=330100&user_id=3408175883&cat_id=50043512&is_b=
+                1&rn=f6c9cb51db725baad7dfdda9f4786a6c" target="_blank">宠物挡拦防猫咪狗狗门栏围栏栅栏隔离栏</a>
+                <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.169.4c2c24b6lv3BSr&id=600188940325&skuId=4195185304871&areaId=330100&user_id=2201413728476
+                &cat_id=50043512&is_b=1&rn=f6c9cb51db725baad7dfdda9f4786a6c" target="_blank">宠物狗狗楼梯台阶小型狗梯子上床爬高海绵爬梯</a>
+            </div>
+            <div class="block_1_part">
+                <div class="text">
+                    <h3>宠物零食</h3>
+                    <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.20a5a198liNgcZ&id=583130951989&skuId=4455423048288&areaId=330100&user_id=1124587100
+                    &cat_id=50034368&is_b=1&rn=22fde739c81899fa56648ff4435fb7b2" target="_blank">狗狗零食火腿肠补钙低盐幼犬宠物零食</a>
+                    <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.76.20a5a198liNgcZ&id=525982916206&skuId=4657710983761&areaId=330100&user_id=754897779
+                    &cat_id=50034368&is_b=1&rn=22fde739c81899fa56648ff4435fb7b2" target="_blank">顽皮牛肉慕斯宠物零食狗罐头</a>
+                    <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.136.20a5a198liNgcZ&id=566390990955&skuId=4459612409732&areaId=330100&user_id=11245871
+                    00&cat_id=50034368&is_b=1&rn=22fde739c81899fa56648ff4435fb7b2"
+                       target="_blank">麦富迪冻干狗零食鸡胸肉干泰迪金毛宠物零食</a>
+                    <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.241.20a5a198liNgcZ&id=605840255775&skuId=4619240018833&areaId=330100&user_id=32836430
+                    00&cat_id=50034368&is_b=1&rn=22fde739c81899fa56648ff4435fb7b2"
+                       target="_blank">凯锐思狗狗罐头宠物零食拌饭湿粮调理肠胃补钙</a>
+                    <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.291.20a5a198liNgcZ&id=613141409525&areaId=330100&user_id=3283643000&cat_id=50034368&
+                    is_b=1&rn=22fde739c81899fa56648ff4435fb7b2" target="_blank">凯锐思小鱼干猫零食冻干多春鱼满籽猫咪狗狗宠物零食</a>
+                </div>
+            </div>
+        </div>
+        <div class="block_2">
+            <div class="text">
+                <h3>宠物装扮</h3>
+                <div class="block_2_part">
+                    <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.6.ffb542b2fSDhKc&id=635271817942&skuId=4545131896999&areaId=330100&user_id
+                               =2208745932670&cat_id=2&is_b=1&rn=0f0317e84a639a0a78671061c482b637" target="_blank"
+                       title="猫头套猫咪头饰戴帽子的猫猫宠物生日可爱狮子头新款同款搞怪装扮"><img src="./images/m1.jpg" width="100%"></a>
+
+                </div>
+                <div class="block_2_part">
+                    <a href="https://detail.tmall.com/item.htm?spm=a220m.1000858.1000725.156.ffb542b2fSDhKc&id=599158025750&skuId=4179025440216&areaId=330100&user_
+                id=2418449983&cat_id=2&is_b=1&rn=0f0317e84a639a0a78671061c482b637" target="_blank"
+                       title="doglemi多乐米宠物蜘蛛衣服 猫狗通用毛绒蜘蛛变身装派对装扮"><img src="./images/m2.jpg" width="100%"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="copyright_part">
+    <div>
+        Copyright (C) <a>ZUCC heyongjie</a>. All Rights Reserved.
+        <address>通讯地址：浙大城市学院 电话：15268776025 邮箱：31901016@stu.zucc.edu.cn</address>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宠物之家</title>
+    <style type="text/css">
+        * {
+            margin: 0; /* 外边框 上下 左右 */
+            padding: 0; /* 内边框 上下 左右 */
+            border: 0; /* 边框 */
+            list-style-type: none;
+            text-decoration: none;
+        }
+        #currentTime {
+            width: 250px;
+            height: 60px;
+            margin-top: 10px;
+            text-align: center;
+            display: flex;
+            float: right;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            font-size: 26px;
+            color: #000000;
+        }
+        .header {
+            width: 75%;
+            height: 70px;
+            margin: auto;
+            background: white;
+        }
+        #home:before {
+            content: "\f015";
+            font-family: FontAwesome, serif;
+            font-size: 24px;
+            color: #733f26;
+        }
+        .header .nav a {
+            width: 10%;
+            height: 70px;
+            display: block;
+            font-family: 微软雅黑;
+            color: #333333;
+            margin: 0 2px;
+            background-image: -webkit-linear-gradient(right, #6CD5CB, #c09d8a);
+            border-radius: 0 30px;
+            padding: 0 5px;
+            font-size: 24px;
+            text-align: center;
+            line-height: 70px;
+            float: left;
+        }
+        .header a:hover {
+            background-image: -webkit-linear-gradient(right, #9999CC, #8fb432);
+            color: rgba(0, 255, 255, 0.5);
+        }
+        .header #logo {
+            width: 6%;
+            float: left;
+        }
+        .dividing_line {
+            width: 1px;
+            height: 40px;
+            margin: 15px 0 10px 0;
+            background-color: black;
+            float: right;
+        }
+        .header #login, #register {
+            width: 6%;
+            height: 70px;
+            display: block;
+            font-family: 微软雅黑;
+            color: #cccccc;
+            font-size: 30px;
+            text-align: center;
+            line-height: 70px;
+            float: right;
+        }
+        .header #login:hover, #register:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+            color: black;
+        }
+        #copyright_part {
+            width: 100%;
+            display: flex;
+            padding: 20px 0;
+            flex-flow: column nowrap;
+            text-align: center;
+            font-size: 20px;
+        }
+        #copyright_part a {
+            color: #000000;
+        }
+        #copyright_part a:hover {
+            color: #c09d8a;
+        }
+        #to_header {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 25px;
+            border: #CCCCCC 5px solid;
+            font-weight: 700;
+        }
+        #to_header:hover {
+            cursor: pointer;
+            color: #ffffff;
+            transition: 0.3s;
+            background-color: #999999;
+        }
+        #to_header_arrow {
+            font-size: 60px;
+            transform: translate(4px, 0) rotateZ(1.6rad);
+        }
+        #to_header:hover #to_header_arrow {
+            color: #ffffff;
+        }
+        .middle {
+            width: 75%;
+            height: 2280px;
+            margin: auto;
+        }
+        .part_header {
+            width: 100%;
+            height: 80px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+        .part_header > div {
+            float: left;
+        }
+        .bef_point {
+            margin-top: 20px;
+            margin-right: 20px;
+            width: 15px;
+            height: 40px;
+            background: #6CD5CB;
+        }
+        .header_text {
+            background-image: -webkit-linear-gradient(right, #6CD5CB, #c09d8a);
+            width: 80%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 20px;
+            margin-right: 10px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 40px;
+        }
+        .middle {
+            width: 1180px;
+            height: 2280px;
+        }
+        .block {
+            float: left;
+            width: 46%;
+            height: 300px;
+            margin: 20px;
+            overflow: auto;
+        }
+        .name {
+            width: 98%;
+            font-size: 30px;
+            font-family: 微软雅黑;
+            margin: 5px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .name a {
+            color: black;
+        }
+        .name a:hover{
+            color: #6CD5CB;
+        }
+        .text h3 {
+            font-size: 20px;
+            font-family: 微软雅黑;
+            margin: 15px 10px 5px;
+        }
+        .text p {
+            font-size: 20px;
+            font-family: 等线;
+            margin: 5px 10px;
+            text-indent: 2rem;
+        }
+        .more {
+            width: 100%;
+        }
+        .more a {
+            position: relative;
+            width: 80px;
+            right: 30px;
+            height: 50px;
+            float: right;
+            background-color: #6666cc;
+            color: white;
+            border-radius: 20px;
+            font-size: 24px;
+            font-family: 华文行楷;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .more a:hover {
+            color: #6CD5CB;
+        }
+        .contents {
+            position: fixed;
+            top: 150px;
+            left: 50px;
+            width: 150px;
+            height: 200px;
+            text-align: center;
+            border: 2px solid purple;
+            border-radius: 20px;
+        }
+        .contents h3 {
+            position: relative;
+            font-size: 30px;
+            right: 30px;
+        }
+        .contents p {
+            margin: 5px;
+            font-size: 24px;
+            font-family: "华康少女文字 - Kelvin";
+            color: black;
+            transition: 0.8s;
+        }
+        .contents p:hover {
+            color: #CCC49F;
+            transform: translate(20px, 0);
+            transition: 0.8s;
+        }
+    </style>
+    <script type="text/javascript" src="introduce_and_purchase.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            current();
+            toTop();
+        };
+    </script>
+</head>
+<body>
+<div class="header">
+    <div id="logo">
+        <img src="images/logo.png" width="100%"/>
+    </div>
+    <div class="nav">
+        <a href="home.html" id="home">首页</a>
+        <a href="introduce.html">品种介绍</a>
+        <a href="purchase.html">购买宠物</a>
+        <a href="了解更多.html">了解更多</a>
+        <a href="联系我们.html">联系我们</a>
+    </div>
+    <a href="register.html">
+        <div id="register">注册</div>
+    </a>
+    <div class="dividing_line"></div>
+    <a href="login.html">
+        <div id="login">登录</div>
+    </a>
+    <div id="currentTime"></div>
+</div>
+<div class="contents">
+    <h3>目录</h3>
+    <a href="#id1"><p>喵星球</p></a>
+    <a href="#id2"><p>汪星球</p></a>
+    <a href="#id3"><p>......</p></a>
+    <a href="#id3"><p>......</p></a>
+</div>
+<div class="middle">
+    <div class="part_header">
+        <div class="bef_point"></div>
+        <div class="header_text" id="id1">喵星球</div>
+        <div class="block">
+            <img src="./images/e1.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E7%9F%AD%E6%AF%9B%E7%8C%AB/300902?fr=aladdin" target="_blank">美国短毛猫</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    美国短毛猫天性良善、随和、在家庭中很受欢迎。它们耐受小孩子，可以表现得十分沉着冷静。母猫往往比公猫更加活泼，而公猫性格往往更加随和。总体上看，它们非常聪明，并对周边事物都很感兴趣。很多美国短毛猫会捕猎入侵家中的昆虫。它们也喜欢从窗台上看外面的鸟和其它活物。它们喜爱人们的陪伴，但是也需要有自己独立的空间。有一些美短喜爱趴在人们腿上，也有一些更倾向于蜷缩在人们附近。</p>
+                <h3>生理特征：</h3>
+                <p>
+                    公猫体重大约在5-7公斤，母猫体重大约在3-5.5公斤。美国短毛猫到3、4岁时才会停止发育，寿命在15年左右。没有英国短毛猫那么“敦实”。眼睛间距较宽，上眼睑的形状像半个杏仁、下眼睑有着半圆形的曲线，眼睛不像异国短毛猫（加菲猫，见下文）那么圆，且微微上挑。口鼻较短，有着强健的下巴，所以整个脸型有点方。耳朵中等大小，耳尖呈圆形，双耳尖的间距大约是眼睛间距的两倍。美国短毛猫的毛比较硬。最经典的颜色就是银色虎斑纹和棕色虎斑纹。</p>
+                <h3>性格特点：</h3>
+                <p>
+                    美国短毛猫天性良善、随和、在家庭中很受欢迎。它们耐受小孩子，可以表现得十分沉着冷静。母猫往往比公猫更加活泼，而公猫性格往往更加随和。总体上看，它们非常聪明，并对周边事物都很感兴趣。很多美国短毛猫会捕猎入侵家中的昆虫。它们也喜欢从窗台上看外面的鸟和其它活物。它们喜爱人们的陪伴，但是也需要有自己独立的空间。有一些美短喜爱趴在人们腿上，也有一些更倾向于蜷缩在人们附近。</p>
+            </div>
+        </div>
+        <div class="block">
+            <img src="./images/e2.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E8%8B%B1%E5%9B%BD%E7%9F%AD%E6%AF%9B%E7%8C%AB/672846?fr=aladdin" target="_blank">英国短毛猫</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    英国短毛猫有可能是最老的英国品种猫，它们的祖先可以追溯到罗马时代的家猫。它们早先以力量和捕猎能力著称。英国短毛猫起初是英国的街头流浪猫，但在育种者不断地优选下，形成了一个稳定的品种。
+                </p>
+                <h3>生理特征：</h3>
+                <p>
+                    如果用一个词来形容英国短毛猫，那一定是“结实”。公猫体重大约在4-8公斤，母猫体重大约在3-5.5公斤。英国短毛猫到3岁时才会停止发育，寿命在15年左右。英国短毛猫被毛短、密致、有绒质手感。它们头很圆、鼻子比较短、脸颊饱满、圆形的胡须垫很突出。眼睛又大又圆。蓝色是英国短毛猫最经典的颜色，由于它异乎寻常的流行性，蓝色的英国短毛猫也被称为“蓝猫”。
+                </p>
+                <h3>性格特点：</h3>
+                <p>
+                    英国短毛猫很常见，它们友好、友爱，不是特别粘人，但是也很享受人们的关心爱护。它们忠诚，但不喜欢待在人们腿上，他们更喜欢在沙发上挤在你边上，人们称之为“四只脚都在地上的猫”。它们比较安静，也不会乱跑乱跳，耐受小孩子和狗。它们不喜欢被抱来抱去。
+                </p>
+            </div>
+        </div>
+        <div class="block">
+            <img src="./images/e3.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E5%BC%82%E5%9B%BD%E7%9F%AD%E6%AF%9B%E7%8C%AB/4630871?fr=aladdin" target="_blank">异国短毛猫（加菲）</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    异国短毛猫其实是“无心插柳”的结果。美国短毛猫的育种者将美国短毛猫与波斯猫配种，本来想获得银色的被毛和绿色的眼睛，可是结果不尽如人意。但这个新品种看起来却异常可爱，育种者建议它们成为一个新的品种，称为“sterling”（意思为银色）。它们看着和波斯猫很像，但是有着短的、密致的被毛。起初在赛事中只接受银色，但是后来所有其它颜色也被承认，并改名为“异国短毛猫”。之后育种者又用不同的品种，比如缅因猫、俄罗斯蓝猫等，与波斯猫配种，获得不同毛色的异国短毛猫。
+                </p>
+                <h3>生理特征：</h3>
+                <p>
+                    异国短毛猫是中等体型的猫，有着又大又圆又扁的脸蛋，耳朵位置偏下，眼睛也是又大又圆，鼻子很短，继承了波斯猫的头部缺陷，比如泪腺容易溢出、鼻孔过于狭窄以及牙齿的问题。它们身体又短又强壮、呈现方形，腿和尾巴都又短又粗。异国短毛猫是所有短毛猫种体型最为“浑圆”的。异国短毛猫的毛其实并不短，更接近于中等长度，比较容易掉毛，需要一定程度的毛发梳理。
+                </p>
+                <h3>性格特点：</h3>
+                <p>
+                    异国短毛猫友爱、温顺、有着波斯猫类似的安静特质。它们会用让你无法拒绝的眼神来获得你的关注。它们的短毛猫祖先让它们喜爱玩耍。它们声音很轻柔，能和小孩子和其它宠物和谐共处。它们害怕不熟悉的人，对人类关爱度较低。
+                </p>
+            </div>
+        </div>
+        <div class="block">
+            <img src="./images/e4.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E5%B8%83%E5%81%B6%E7%8C%AB/642121?fr=aladdin" target="_blank">布偶猫</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    布偶猫在20世纪60年代由Ann
+                    Baker率先培育。布偶猫的祖先几乎全是流浪猫。Ann将一只她收养的白色长毛母猫和她其它收养的猫配种，这只母猫的后代有着异乎寻常的安静性格，当她抱着它们的时候，有一些就像布偶一样松松垮垮地挂在她的胳膊上。经过毛色等外貌的筛选，她发明了布偶这个品种。
+                </p>
+                <h3>生理特征：</h3>
+                <p>
+                    布偶猫体型较大、慵懒、毛发中等长度。公猫体重可达7-10公斤，母猫体重可达4.5-7公斤。公猫体长可以超过1米（含尾巴）。布偶猫有着迷人的、且微向上扬起的蓝色眼睛。头部呈等边三角形，耳朵中等大小，两只耳朵距离较远，耳尖且向前倾。鼻子中等长度。布偶猫是一个重点色的品种（重点色——身体的颜色比重点位置（脸、腿、尾巴、耳朵）的颜色要浅），分三个品种：重点色（colorpoint）、bicolor（双色）和mitted（戴手套——腿上只有脚是白色的）。每个品种都有海豹色、蓝色、巧克力色、浅紫色、月桂色、浅黄褐色、红色、奶油色，也可以附加有玳瑁、山猫或虎斑纹。布偶猫算是比较晚熟的品种，一般最早3岁，最晚4-5岁才可以算发育完全。
+                </p>
+                <h3>性格特点：</h3>
+                <p>
+                    布偶猫放松、开心、就像小孩子的玩偶一样。它们友爱、安静、看起来比较懒散。它们不是很活跃、也不太爱叫。布偶猫以它们的忍受力著称，它们能忍受穿上衣服，并且被抱着走动，不会反抗。因为它们的友好和聪慧，它们经常被拿到与狗进行类比。
+                </p>
+            </div>
+        </div>
+        <div class="more">
+            <a href="https://www.douban.com/group/topic/140774685/?type=rec" target="_blank">更多</a>
+        </div>
+    </div>
+    <div class="part_header">
+        <div class="bef_point"></div>
+        <div class="header_text" id="id2">汪星球</div>
+        <div class="block">
+            <img src="./images/f1.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E6%AF%94%E7%86%8A%E7%8A%AC/6139?fr=aladdin"  target="_blank">比熊犬</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    卷毛比熊犬13世纪前在欧洲就有了，特别受到西班牙人的青睐，14世纪晚期，西班牙水手在航行中常把它作为交易品，最终在一个名为塔纳瑞夫的岛上聚集了很多犬，这就是后来很有名的比熊犬。这些犬随着意大利水手的交易又到了意大利，在那里他们很快成为意大利贵族们的宠物，并成为欧洲贵族所喜爱的宠物。1500年，当法国入侵意大利时，法国人被比熊犬白茸茸可爱的样子迷住了，并把它作为战利品带回法国。
+                </p>
+                <h3>生理特征：</h3>
+                <p>
+                    耳朵下垂，隐藏在长而流动的毛发中。耳朵的位置略高于眼睛，并且在比较靠前的位置。黑色或深褐色的眼睛，眼睛周围有黑色或非常深的褐色皮肤环绕，眼圈本身是黑色的。口吻与脑袋的长度比例非常匀称。黑色的嘴唇精致但不下垂。大腿肌肉发达，距离略宽。前驱伸展轻松，后驱驱动有力。尾巴有许多羽毛，尾巴的位置与背线齐平，温和的卷在背后。
+                </p>
+                <h3>性格特点：</h3>
+                <p>
+                    性情开朗、活泼、聪明、勇敢、机警、感情丰富，有较强的适应能力。它忠实于主人，但也具有坚强的个性。温和而守规矩，敏感、顽皮、且挚爱。愉快的态度是这个品种的特点，而且很容易因为小事情而满足。虽然个子小，卷毛比熊犬颇有个性，天性活泼、爱好自由，能给主人带来快乐。
+                </p>
+            </div>
+        </div>
+        <div class="block">
+            <img src="./images/f2.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E7%88%B1%E6%96%AF%E5%9F%BA%E6%91%A9%E7%8A%AC/447333?fr=aladdin" target="_blank">爱斯基摩犬</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    远在千年前，在严寒的西伯利亚东部，Chukchi楚克奇族人最先培殖西伯利亚雪撬犬。族人用它作为工作犬帮助运输的工作。可爱的犬只拖着雪撬在冰天雪地下行走所以称之为「雪撬犬」。西伯利亚雪撬犬曾为
+                    Chukchi 族人驱走外来入侵的Cossacks人，成为远古的战士。在二十世纪初，西伯利亚雪撬犬被送到阿拉斯加混种繁殖。经过近百年的历史，繁殖出来的又被AKC(American Kennel
+                    Club )认可的犬种有 ：阿拉斯加雪橇犬（译为阿拉斯加马拉缪特）(Alaskan Malamute) ·萨摩耶德犬(Samoyed) ·美国爱斯基摩犬(American Eskimo)
+                    阿拉斯加雪撬犬在 AKC 不列入为纯种犬所以在名册上找不到它，而美国爱斯基摩犬则是最新配殖成认可纯种犬的 Husky。西伯利亚雪撬犬与阿拉斯加马拉缪特(Alaskan Malamute)
+                    是最相似的，经常被混淆。
+                </p>
+                <h3>生理特征：</h3>
+                <p>
+                    体 形
+                    结实，且结构紧凑，有足够的骨量。有三种尺寸类型（尺寸是指肩高）：玩具型，9英寸~12英寸（包括12英寸）；小型，12英寸~15英寸（包括15英寸）；标准型，15~19英寸（包括19英寸）。在这三种尺寸范围内，没有特别的偏爱。失格：低于9英寸或高于19英寸。比例：体长（从肩胛骨最前端到臀部末端的距离）略大于肩高，比例大约为1.1:1。
+                </p>
+                <h3>性格特点：</h3>
+                <p>
+                    美国爱斯基摩犬是一种友善、警惕、且聪明的狗，尽管有点保守。在家里，他是一个非常卓越的看门狗，以警告性的吠声告知家人有陌生人来访。能保护家庭和家人，尽管他不会有咬人或攻击人的危险。美国爱斯基摩犬能很快学会新的技能，并热衷于取悦主人。
+                </p>
+            </div>
+        </div>
+        <div class="block">
+            <img src="./images/f3.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E6%9D%BE%E7%8B%AE%E7%8A%AC/223935?fromtitle=%E6%9D%BE%E7%8B%AE&fromid=518676&fr=aladdin" target="_blank">松狮</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    松狮犬原产于中国，在古代曾名为獢獢，是有着2000多年历史的古老犬种，是世界上最古老的犬种之一。在18世纪，英国与中国往来，松狮犬也从中国传到了西方。松狮犬当时名为獢獢，根据它的粤语发音，英美人将它们称为Chow
+                    Chow。1880年时，维多利亚女王喜欢上松狮犬后，该品种才在英国引起人们的兴趣，发展到了一定的数量。在英国1889年第一次成立了专门的俱乐部。AKC在1903年正式承认了该品种，在1906年美国松狮犬俱乐部被同意成立并作为AKC的成员俱乐部一，今天它已成为美国相当确定的品种。
+                    20世纪40年代以后，欧美在传统原生松狮犬的基础上经过选育培养出了美系松狮犬。在松狮犬的原产地中国，传统的原生松狮犬至今依然大量存在于两广地区。
+                </p>
+                <h3>生理特征：</h3>
+                <p>
+                    具有狮子般的外貌和姿态。头部宽，平平的头顶，额段小。耳小且厚，呈三角形直立，两耳问距宽，开口向前。杏核小眼，偏斜，通常为黑色。鼻呈黑色、狭窄，但不突出。嘴宽阔，离耳较远，蓝黑色的舌头是此犬的最大特征。整个面部显得愁眉苦脸，好似有伤心事一般。肌肉发达，身体匀称，胸部厚实，背短且直，腰部短而强健。前趾长，骨骼结实。后肢直且肌肉发达。足部相当小，呈圆形，似猫足。尾根高，朝背上弯曲，并有浓密饰毛。被毛密集深长，上毛粗硬站立，下毛柔软浓密，底层绒毛呈羊毛状。毛色为黑、蓝、奶油、白、红、淡黄褐等色，大腿后侧及尾巴下侧的毛较淡，颈脖毛发丰满，看上去像个狮子，颜色为棕褐色。
+                </p>
+                <h3>性格特点：</h3>
+                <p>
+                    松狮犬十分文静，性格高雅，从不搞破坏，它们是最易学会如厕的犬种。但松狮犬的性格很独特，它们很像猫，非常自我，独立、固执。
+                </p>
+            </div>
+        </div>
+        <div class="block">
+            <img src="./images/f4.jpg" width="100%" height="98%">
+        </div>
+        <div class="block">
+            <div class="name">
+                <a href="https://baike.baidu.com/item/%E8%BE%B9%E5%A2%83%E7%89%A7%E7%BE%8A%E7%8A%AC/406513?fr=aladdin" target="_blank">边境牧羊犬</a>
+            </div>
+            <div class="text">
+                <h3>历史：</h3>
+                <p>
+                    边境牧羊犬又名边境柯利犬，是一种非常聪明的犬种，主要分布在四个国家——英国、美国、澳大利亚和新西兰。美国科学家通过大量测试研究发现，边境牧羊犬的服从智商超过德国牧羊犬和贵妇犬，在一百多个犬种中排名第一。最早时期苏格兰被放牧的羊以及用来看管羊的犬都是在苏格兰群岛上发现的，那些犬都是来源于以前从爱尔兰移居到苏格兰的教士，他们带过去的犬，并且是在早期维京人还没入侵苏格兰之前就已经过去了的。可是在这种崎岖的地理环境内人们也就只有依靠犬来帮忙集合、驱赶以及看牧牲畜了。根据现代牧羊犬的起源，它们有着“眼神控制”这样的能力，这种能力是通过在英格兰和苏格兰边境地方的牧羊人发展并且训练出来的，所以人们把这种犬就称做“边境牧羊犬”。
+                </p>
+                <h3>生理特征：</h3>
+                <p>
+                    边境牧羊犬头部宽阔，脑袋的长度与前脸的长度几乎相等。耳朵呈中等大小，分得较开，耳朵灵敏且灵活，保持竖立或半立。眼部分的较开，中等大小，卵形，眼睛颜色多为褐色。尖端较细的口吻直到鼻尖，鼻孔发达，鼻子一般为黑色。胸部深、宽度适中。前肢骨骼发达，彼此平行。脚腕略微倾斜。狼爪可以切除，足爪紧凑呈卵形，脚垫深且结实，脚趾适度圆拱，紧凑，趾甲短而结实。后驱宽阔，并向尾巴处倾斜。大腿宽长深膝关节角度恰当。后肢股量充足，彼此平行且有轻微的牛肢。
+                </p>
+                <h3>性格特点：</h3>
+                <p>
+                    性格顽强，温顺，又敏锐、机警、灵敏、既不凶恶也不羞怯的气质，还聪明、容易训练、温和、忠诚、顺从等特点。天性聪慧、能察言观色，能确实明白主人的指示。
+                </p>
+            </div>
+        </div>
+        <div class="more">
+            <a href="https://baijiahao.baidu.com/s?id=1629578709513264892&wfr=spider&for=pc" target="_blank">更多</a>
+        </div>
+    </div>
+    <div class="part_header">
+        <div class="bef_point"></div>
+        <div class="header_text" id="id3">前面的区域，以后再来探索吧</div>
+    </div>
+</div>
+<div id="to_header" title="回到顶部">
+    <div id="to_header_arrow">&lt;</div>
+</div>
+<div id="copyright_part">
+    <div>
+        Copyright (C) <a>ZUCC heyongjie</a>. All Rights Reserved.
+        <address>通讯地址：浙大城市学院 电话：15268776025 邮箱：31901016@stu.zucc.edu.cn</address>
+    </div>
+</div>
+</body>
+</html>
